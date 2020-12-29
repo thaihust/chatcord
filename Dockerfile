@@ -16,6 +16,7 @@ COPY nginx/conf.d/websocket.cloudrity.site.conf-http /etc/nginx/conf.d
 COPY nginx/conf.d/websocket.cloudrity.site.conf-https /etc/nginx/conf.d
 COPY nginx/ssl/websocket.cloudrity.site443.crt /etc/nginx/ssl
 COPY nginx/ssl/websocket.cloudrity.site443.key /etc/nginx/ssl
-COPY start.sh /usr/local/bin
+COPY start /usr/local/bin
+COPY start-streaming-server /usr/local/bin
 
-CMD ["/usr/local/bin/start.sh"]
+CMD ["/usr/local/bin/start"]
