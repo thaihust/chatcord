@@ -115,6 +115,8 @@ app.use('/', require('./routes/index'));
 
 app.use('/streaming', require('./routes/streaming'));
 
+app.use('/video', require('./routes/video'));
+
 app.post('/upload', multer(multerConfig).single('_file'),function(req, res){
     //Here is where I could add functions to then get the url of the new photo
     //And relocate that to a cloud storage solution with a callback containing its new url
