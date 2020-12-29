@@ -113,8 +113,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.use('/', require('./routes/index'));
 
-app.use('/streaming', require('./routes/streaming'));
-
 app.use('/video', require('./routes/video'));
 
 app.post('/upload', multer(multerConfig).single('_file'),function(req, res){
