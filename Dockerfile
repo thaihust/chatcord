@@ -7,6 +7,7 @@ RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y git net-tool
     && cd /opt/chatcord && npm install \
     && mkdir -p /etc/nginx/ssl
 
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/conf.d/websocket.cloudrity.site.conf /etc/nginx/conf.d
 COPY nginx/conf.d/websocket.cloudrity.site.conf-http /etc/nginx/conf.d
 COPY nginx/conf.d/websocket.cloudrity.site.conf-https /etc/nginx/conf.d
