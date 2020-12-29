@@ -1,8 +1,11 @@
 FROM ubuntu:18.04
 
 RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y git net-tools curl wget vim nginx \
-    && curl -sL https://deb.nodesource.com/setup_15.x | bash - \
-    && apt-get install -y nodejs \
+    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash \
+    && export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" \
+    && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
+    && nvm install v15.4.0 \
+    && ln -s /root/.nvm/versions/node/v15.4.0/bin/node /usr/bin/node \
     && cd /opt && git clone https://github.com/thaihust/chatcord.git \
     && cd /opt/chatcord && npm install \
     && mkdir -p /etc/nginx/ssl
