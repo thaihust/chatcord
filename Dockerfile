@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y git net-tools curl wget vim nginx \
     && curl -sL https://deb.nodesource.com/setup_15.x -o nodesource_setup.sh \
-    && bash nodesource_setup.sh
+    && bash nodesource_setup.sh \
     && cd /opt && git clone https://github.com/thaihust/chatcord.git \
     && cd /opt/chatcord && npm install \
     && mkdir -p /etc/nginx/ssl
